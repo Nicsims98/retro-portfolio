@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Portfolio</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Hello there, Time Traveler!</h1>
+        <p>Welcome to my 90's portfolio</p>
+        <marquee>Breaking Into Tech, One Pixel at a Time</marquee>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-me">
+            <p>
+                Hi! I'm Nic, your guide through this blast from the past! 
+                Born in the age of floppy disks and dial-up screeches, I bring modern tech with a retro twist.
+                Let’s build something totally rad together!
+            </p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skill">
+                <img src="/static/gifs/gameboy.gif" alt="Coding">
+                <p>Master of the keyboard, typing faster than a 90's modem.</p>
+            </div>
+            <div class="skill">
+                <img src="/static/gifs/ken.gif" alt="Design">
+                <p>Pixel-perfect designs reminiscent of GeoCities and MS Paint!</p>
+            </div>
+            <div class="skill">
+                <img src="/static/gifs/EYES.gif" alt="Teamwork">
+                <p>Collaborating like the cast of your favorite Saturday morning cartoons.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="guestbook">
+        <h2>Sign My Guestbook</h2>
+        <form action="/guestbook" method="post" id="guestbook-form">
+            <input type="text" name="guestbook-name" placeholder="Your Name" required>
+            <textarea name="guestbook-message" placeholder="Your Message" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        <ul id="guestbook-entries">
+            {% for entry in guestbook_entries %}
+                <li><strong>{{ entry.name }}</strong>: {{ entry.message }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <div class="contact-links">
+            <a href="https://www.linkedin.com/in/nicmarstalent/" target="_blank">
+                <img src="/static/gifs/hearts_4.gif" alt="LinkedIn"> LinkedIn
+            </a>
+            <a href="https://github.com/Nicsims98" target="_blank">
+                <img src="/static/gifs/skull.gif" alt="GitHub"> GitHub
+            </a>
+        </div>
+    </section>
+
+    <section id="easter-egg-section">
+        <h2>What's This?</h2>
+        <button id="easter-egg-button">
+            <img src="/static/gifs/rocket.gif" alt="What's This?">
+        </button>
+        <p id="secret-message" class="hidden"></p>
+    </section>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
