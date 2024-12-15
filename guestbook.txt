@@ -1,7 +1,3 @@
-<<<<<<< HEAD
 destiny|hey there this is totally cool!
 Fred Durst|Do you ever have one of those days?
-=======
-destiny|hey there this is totally cool!
-Fred Durst|Do you ever have one of those days?
->>>>>>> 42bad24b91e2f821d52b2d1698c2fb69f85657f9
+
