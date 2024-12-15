@@ -43,7 +43,7 @@ How to Run Locally
 
 	1.	Clone the repository:
 
-git clone https://github.com/Nicsims98/retro-portfolio.git
+git clone [your repository link]
 cd retro-portfolio
 
 
@@ -76,10 +76,12 @@ Future Improvements
 
 Connect with Me
 
-	•	LinkedIn: Nic’s LinkedIn
-	•	GitHub: Nic’s GitHub
+LinkedIn
+GitHub
 
 Acknowledgments
 
-	•	GIFs sourced from: GifCities and the Internet Archive.
+	•	GIFs sourced from: GifCity and Internet Archive.
 	•	Inspiration: 90s fansites, GeoCities, and retro web design.
+
+Let me know if you need anything else!
