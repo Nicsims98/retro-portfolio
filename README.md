@@ -41,10 +41,10 @@ retro-portfolio/
 
 How to Run Locally
 
-	1.	Clone the repository:
-
-git clone [your repository link]
+	1.	Clone the repo https://github.com/Nicsims98/retro-portfolio.git
 cd retro-portfolio
+
+
 
 
 	2.	Install dependencies:
