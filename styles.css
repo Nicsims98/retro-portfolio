@@ -1,0 +1,51 @@
+body {
+    font-family: "Comic Sans MS", cursive;
+    background: url('/static/gifs/retro_pixel_background.gif') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    margin: 0;
+    padding: 0;
+    cursor: url('/static/gifs/arrow.gif'), auto;
+    text-align: center;
+}
+
+header {
+    background: #ff1493;
+    color: yellow;
+    padding: 20px;
+    text-shadow: 2px 2px black;
+}
+
+section {
+    margin: 20px;
+    padding: 20px;
+    border: 3px dashed yellow;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+}
+
+h2 {
+    color: #ff1493;
+    text-shadow: 2px 2px black;
+}
+
+.skills-container img {
+    width: 100px;
+    transition: transform 0.3s;
+}
+
+.skills-container img:hover {
+    transform: rotate(360deg);
+}
+
+button {
+    background-color: #ff1493;
+    color: yellow;
+    border: 2px solid lime;
+    padding: 10px 20px;
+}
+
+button:hover {
+    background-color: lime;
+    color: black;
+}
