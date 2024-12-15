@@ -6,7 +6,6 @@ Welcome to my Retro Portfolio! This is a 90's themed blast-from-the-past webpage
 - **About Me**: A fun, dynamic introduction with retro flair.
 - **Skills**: Showcasing abilities with quirky descriptions and 90's themed GIFs.
 - **Guestbook**: Visitors can leave their messages, complete with animations.
-- **Easter Egg**: A hidden surprise with a typewriter effect message.
 - **Retro Styling**: A pixelated background, custom cursor, and sparkling effects.
 
 ## Technologies Used 💻
