@@ -32,26 +32,12 @@ bash
 Copy code
 python app.py
 Open your browser and go to http://127.0.0.1:5000.
-Deployment 🌐
-This project is hosted on Render. Visit the live site here: Your Live Site Link Here.
+
 
 Contributing 🤝
 If you'd like to add new features or fix bugs:
 
-Fork the repository.
-Create a new branch:
-bash
-Copy code
-git checkout -b feature-name
-Commit your changes:
-bash
-Copy code
-git commit -m "Description of changes"
-Push to the branch:
-bash
-Copy code
-git push origin feature-name
-Open a Pull Request.
+
 License 📝
 This project is licensed under the MIT License.
 
