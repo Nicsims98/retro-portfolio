@@ -13,6 +13,26 @@ Welcome to my Retro Portfolio! This is a 90's themed blast-from-the-past webpage
 - **Backend**: Python with Flask
 - **Hosting**: Render
 
+## Installation 🔧
+To run this project locally:
+1. Clone this repository:
+   ```bash
+git clone https://github.com/Nicsims98/retro-portfolio.git
+Navigate to the project directory:
+bash
+Copy code
+cd retro-portfolio
+Install the required dependencies:
+bash
+Copy code
+pip install -r requirements.txt
+Run the Flask app:
+bash
+Copy code
+python app.py
+Open your browser and go to http://127.0.0.1:5000.
+
+
 Contributing 🤝
 If you'd like to add new features or fix bugs:
 
