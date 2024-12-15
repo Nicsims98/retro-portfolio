@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 document.addEventListener("DOMContentLoaded", () => {
     // Easter Egg Typewriter Effect
     document.getElementById("easter-egg-button").addEventListener("click", () => {
@@ -98,10 +97,6 @@ window.onload = function () {
     }, 3000); // Show for 3 seconds
 };
 
-
-
-
-=======
 document.addEventListener("DOMContentLoaded", () => {
     // Easter Egg Typewriter Effect
     document.getElementById("easter-egg-button").addEventListener("click", () => {
@@ -200,8 +195,3 @@ window.onload = function () {
         }, 1000); // Remove after fading out
     }, 3000); // Show for 3 seconds
 };
-
-
-
-
->>>>>>> 42bad24b91e2f821d52b2d1698c2fb69f85657f9
