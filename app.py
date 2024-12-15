@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
@@ -88,4 +87,3 @@ def add_guestbook_entry():
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
->>>>>>> 42bad24b91e2f821d52b2d1698c2fb69f85657f9
