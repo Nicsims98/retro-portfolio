@@ -8,56 +8,47 @@
 </head>
 <body>
     <header>
-        <h1>Hello there, Time Traveler!</h1>
-        <p>Welcome to my 90's portfolio</p>
-        <marquee>Breaking Into Tech, One Pixel at a Time</marquee>
+        <h1>Welcome to My RAD 90's Page!</h1>
+        <marquee>Breaking Into Tech, One Pixel at a Time 🚀</marquee>
     </header>
 
+    <!-- About Me -->
     <section id="about">
         <h2>About Me</h2>
-        <div class="about-me">
-            <p>
-                Hi! I'm Destiny, but you can call me Nic. I'm your virtual guide through this blast from the past. 
-                Born in the era of floppy disks, dial-up screeches, and Windows 95, I’m here to mix retro vibes 
-                with modern tech magic. Think of this page as a love letter to AOL chatrooms, Lisa Frank folders, 
-                and your favorite Saturday morning cartoons. Grab a Surge soda, crank up the dial on your boombox, 
-                and let’s build something totally rad together!
-            </p>
-        </div>
+        <p>
+            Hi! I'm Destiny, but you can call me Nic. I'm your virtual guide through this blast from the past. 
+            Born in the era of floppy disks, dial-up screeches, and Windows 95, I’m here to mix retro vibes 
+            with modern tech magic. Think of this page as a love letter to AOL chatrooms, Lisa Frank folders, 
+            and your favorite Saturday morning cartoons. Grab a Surge soda, crank up the dial on your boombox, 
+            and let’s build something totally rad together
+        </p>
     </section>
 
+    <!-- Skills -->
     <section id="skills">
         <h2>Skills</h2>
         <div class="skills-container">
             <div class="skill">
-                <img src="/static/gifs/gameboy.gif" alt="Coding">
-                <p>Master of the keyboard, typing faster than a 90's modem connects to the internet.</p>
+                <img src="/static/gifs/gamestik_gif.gif" alt="Skill 1">
+                <p>Master of Retro Coding</p>
             </div>
             <div class="skill">
-                <img src="/static/gifs/ken.gif" alt="Design">
-                <p>Pixel-perfect designs that bring back memories of GeoCities and MS Paint masterpieces.</p>
+                <img src="/static/gifs/gameboy.gif" alt="Skill 2">
+                <p>Pixel Perfect Designer</p>
             </div>
             <div class="skill">
-                <img src="/static/gifs/EYES.gif" alt="Teamwork">
-                <p>Team player, collaborating like the cast of your favorite Saturday morning cartoons.</p>
-            </div>
-            <div class="skill">
-                <img src="/static/gifs/skull.gif" alt="Problem-Solving">
-                <p>Crushing bugs like a boss—because nobody messes with my 90's groove.</p>
-            </div>
-            <div class="skill">
-                <img src="/static/gifs/tictactoescreenfinish.gif" alt="Game Development">
-                <p>Creating gamified experiences as iconic as Pac-Man and Tamagotchis.</p>
+                <img src="/static/gifs/Skull.gif" alt="Skill 3">
+                <p>Debugging like a Boss</p>
             </div>
         </div>
     </section>
-    
 
+    <!-- Guestbook -->
     <section id="guestbook">
         <h2>Sign My Guestbook</h2>
-        <form action="/guestbook" method="post" id="guestbook-form">
-            <input type="text" name="guestbook-name" placeholder="Your Name" required>
-            <textarea name="guestbook-message" placeholder="Your Message" required></textarea>
+        <form id="guestbook-form" method="post" action="/guestbook">
+            <input type="text" id="guestbook-name" name="guestbook-name" placeholder="Your Name" required>
+            <textarea id="guestbook-message" name="guestbook-message" placeholder="Your Message" required></textarea>
             <button type="submit">Submit</button>
         </form>
         <ul id="guestbook-entries">
@@ -67,24 +58,23 @@
         </ul>
     </section>
 
+    <!-- Contact -->
     <section id="contact">
         <h2>Contact Me</h2>
-        <div class="contact-links">
-            <a href="https://www.linkedin.com/in/nicmarstalent/" target="_blank">
-                <img src="/static/gifs/hearts_4.gif" alt="LinkedIn"> LinkedIn
-            </a>
-            <a href="https://github.com/nicmamars98" target="_blank">
-                <img src="/static/gifs/guestbook99.gif" alt="GitHub"> GitHub
-            </a>
-        </div>
+        <a href="mailto:example@email.com">
+            <img src="/static/gifs/mail.gif" alt="Email"> Email Me
+        </a>
     </section>
 
+    <!-- Easter Egg -->
     <section id="easter-egg-section">
         <h2>What's This?</h2>
         <button id="easter-egg-button">
-            <img src="/static/gifs/rocket.gif" alt="What's This?">
+            <img src="/static/gifs/flower13.gif" alt="Surprise">
         </button>
         <p id="secret-message" class="hidden"></p>
     </section>
+
+    <script src="/static/js/script.js"></script>
 </body>
-</html>
+</html> 
