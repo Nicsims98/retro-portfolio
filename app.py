@@ -1,101 +1,68 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // Easter Egg Typewriter Effect
-    const easterEggButton = document.getElementById("easter-egg-button");
-    if (easterEggButton) {
-        easterEggButton.addEventListener("click", () => {
-            const message = "Have a better day than Fred Durst after Woodstock '99.";
-            const displayArea = document.getElementById("secret-message");
-            let i = 0;
+from flask import Flask, render_template, request, redirect
+from flask_cors import CORS  # Import CORS for handling cross-origin requests
 
-            displayArea.textContent = ""; // Clear existing text
-            displayArea.classList.remove("hidden");
+app = Flask(__name__)
 
-            function typeWriterEffect() {
-                if (i < message.length) {
-                    displayArea.textContent += message.charAt(i);
-                    i++;
-                    setTimeout(typeWriterEffect, 100);
-                }
-            }
-            typeWriterEffect();
-        });
+# Define allowed CORS configuration
+frontend_origins = ["*"]  # Allow all origins; replace with a list of specific URLs if needed
+cors_config = {
+    r"*": {  # Match all routes
+        "origins": frontend_origins,  # Allowed origins
+        "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],  # Allowed HTTP methods
+        "allow_headers": [  # Allowed headers in requests
+            "Authorization",
+            "Content-Type",
+            "X-Requested-With",
+            "X-CSRF-Token"
+        ],
+        "supports_credentials": True  # Allow cookies and authentication
     }
+}
 
-    // Guestbook Entries Animation
-    const form = document.getElementById("guestbook-form");
-    const entriesList = document.getElementById("guestbook-entries");
+# Apply CORS to the app with the defined configuration
+CORS(app, resources=cors_config)
 
-    if (form && entriesList) {
-        form.addEventListener("submit", (e) => {
-            e.preventDefault();
-            const name = document.getElementById("guestbook-name").value;
-            const message = document.getElementById("guestbook-message").value;
+# File to store guestbook entries
+GUESTBOOK_FILE = 'guestbook.txt'
 
-            const entry = document.createElement("li");
-            entry.innerHTML = `<strong>${name}</strong>: ${message}`;
-            entry.style.color = "lime";
-            entry.style.animation = "fadeIn 1s ease-in";
+# Function to read guestbook entries
+def read_guestbook():
+    entries = []
+    try:
+        with open(GUESTBOOK_FILE, 'r') as file:
+            for line in file:
+                try:
+                    name, message = line.strip().split("|")
+                    entries.append({'name': name, 'message': message})
+                except ValueError:
+                    print(f"Skipping invalid line: {line.strip()}")
+    except FileNotFoundError:
+        pass
+    return entries
 
-            entriesList.appendChild(entry);
+# Function to write new entries
+def write_guestbook(name, message):
+    with open(GUESTBOOK_FILE, 'a') as file:
+        file.write(f"{name}|{message}\n")
 
-            // Clear the form
-            form.reset();
-        });
-    }
+# Route for homepage
+@app.route('/')
+def index():
+    guestbook_entries = read_guestbook()
+    return render_template('index.html', guestbook_entries=guestbook_entries)
 
-    // Sparkling Cursor Trail
-    document.addEventListener("mousemove", function (e) {
-        const sparkle = document.createElement("div");
-        sparkle.className = "sparkle";
-        sparkle.style.left = `${e.pageX}px`;
-        sparkle.style.top = `${e.pageY}px`;
-        document.body.appendChild(sparkle);
+# Route for adding guestbook entries
+@app.route('/guestbook', methods=['POST'])
+def add_guestbook_entry():
+    name = request.form.get('guestbook-name')
+    message = request.form.get('guestbook-message')
 
-        setTimeout(() => {
-            sparkle.remove();
-        }, 1000); // Sparkle disappears after 1 second
-    });
+    if name and message:
+        write_guestbook(name, message)
+        return redirect('/')
+    else:
+        return 'Both name and message are required.', 400
 
-    // Random GIF Popups
-    const gifs = [
-        "/static/gifs/arrow.gif",
-        "/static/gifs/barflower2.gif",
-        "/static/gifs/skull.gif",
-        "/static/gifs/flyingdragons.gif",
-        "/static/gifs/cowbell.gif",
-        "/static/gifs/bye.gif"
-    ];
-
-    function randomGifPopup() {
-        const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
-        const gifElement = document.createElement("img");
-        gifElement.src = randomGif;
-        gifElement.className = "floating-gif";
-        gifElement.style.left = `${Math.random() * window.innerWidth}px`;
-        gifElement.style.top = `${Math.random() * window.innerHeight}px`;
-        document.body.appendChild(gifElement);
-
-        setTimeout(() => {
-            gifElement.remove();
-        }, 3000); // Remove GIF after 3 seconds
-    }
-
-    // Show a random GIF every 5 seconds
-    setInterval(randomGifPopup, 5000);
-
-    // Page Load Animation
-    const welcomeMessage = document.createElement("div");
-    welcomeMessage.id = "welcome-message";
-    welcomeMessage.innerHTML = `
-        <h1>Welcome to the RAD 90's Experience!</h1>
-        <p>Prepare for a blast from the past 🚀</p>
-    `;
-    document.body.appendChild(welcomeMessage);
-
-    setTimeout(() => {
-        welcomeMessage.style.opacity = 0;
-        setTimeout(() => {
-            welcomeMessage.remove();
-        }, 1000); // Remove after fading out
-    }, 3000); // Show for 3 seconds
-});
+# Start the server
+if __name__ == '__main__':
+    app.run(debug=True, port=5000)
