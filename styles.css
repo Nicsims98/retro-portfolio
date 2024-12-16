@@ -1,193 +1,98 @@
+/* General Styling */
 body {
-    font-family: "Comic Sans MS", cursive;
     background: url('/static/gifs/background.gif') no-repeat center center fixed;
     background-size: cover;
-    color: white;
+    font-family: "Comic Sans MS", cursive;
+    color: lime;
     text-align: center;
     margin: 0;
     padding: 0;
-    cursor: url('/static/gifs/glitterpurpbtfly.gif'), auto;
+    cursor: url('/static/gifs/cursor.gif'), auto;
 }
+
+/* Header */
 header {
-    background: #ff1493;
+    background-color: #ff1493;
     color: yellow;
     text-shadow: 2px 2px black;
     padding: 20px;
-    font-size: 1.5em;
-    border-bottom: 5px solid yellow;
 }
 
-/* Sections Styling */
+/* Sections */
 section {
-    margin: 30px auto;
-    padding: 20px;
-    border: 3px dashed yellow;
-    background-color: rgba(0, 0, 0, 0.8);
+    margin: 20px;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px dashed yellow;
     border-radius: 10px;
-    max-width: 800px;
-    :focus {
-        outline: none;
-    }
-    
 }
 
-/* Section Titles */
 h2 {
-    font-size: 2.5em;
-    text-shadow: 3px 3px black;
     color: #ff1493;
-    margin-bottom: 20px;
+    text-shadow: 2px 2px black;
 }
 
-/* About Me Styling */
-.about-me p {
-    font-size: 1.2em;
-    line-height: 1.5;
-    color: lime;
-    text-shadow: 1px 1px black;
-}
-
-/* Skills Section */
+/* Skills */
 .skills-container {
     display: flex;
     justify-content: center;
-    gap: 20px;
     flex-wrap: wrap;
+    gap: 20px;
 }
 
 .skill img {
     max-width: 100px;
-    height: auto;
-    margin: 10px;
-    transition: transform 0.5s, filter 0.3s;
-    filter: drop-shadow(2px 2px 2px black);
+    transition: transform 0.5s ease-in-out;
 }
 
 .skill img:hover {
     transform: rotate(360deg);
-    filter: drop-shadow(4px 4px 5px lime);
 }
 
-/* Guestbook Styling */
-#guestbook-form input,
-#guestbook-form textarea,
-button {
+/* Guestbook */
+form input, form textarea, form button {
     font-family: "Comic Sans MS", cursive;
+    margin: 5px;
     padding: 10px;
     border: 2px solid #ff1493;
     background: black;
-    color: white;
-    border-radius: 5px;
-    transition: 0.3s;
+    color: lime;
 }
 
 button:hover {
     background-color: lime;
     color: black;
-    box-shadow: 0px 0px 10px lime;
 }
 
 #guestbook-entries li {
     margin: 10px;
-    color: lime;
+    color: yellow;
     text-shadow: 1px 1px black;
-    list-style: none;
-}
-
-/* Contact Links */
-.contact-links a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 10px auto;
-    color: lime;
-    text-decoration: none;
-    font-size: 1.2em;
-    max-width: 200px;
-}
-
-.contact-links img {
-    max-width: 50px;
-    margin-right: 10px;
-    transition: transform 0.3s;
-}
-
-.contact-links img:hover {
-    transform: scale(1.2);
 }
 
 /* Easter Egg */
 #secret-message {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.8);
-    color: lime;
-    padding: 20px;
-    border: 3px dashed yellow;
-    border-radius: 10px;
+    display: none;
+    color: yellow;
     font-size: 1.5em;
-    text-shadow: 2px 2px black;
-    z-index: 1000;
+}
+.hidden {
     display: none;
 }
 
-/* Sparkling Cursor Trail */
+/* Sparkling Cursor */
 .sparkle {
     position: absolute;
     width: 10px;
     height: 10px;
-    background-color: yellow;
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgba(255, 255, 0, 0.8);
+    background: yellow;
     pointer-events: none;
+    border-radius: 50%;
     animation: fadeOut 1s ease-out;
 }
 
-/* Random Floating GIFs */
-.floating-gif {
-    position: absolute;
-    width: 50px;
-    height: auto;
-    z-index: 1000;
-    animation: float 3s ease-in-out;
-}
-
-/* Animations */
 @keyframes fadeOut {
     to {
         opacity: 0;
-    }
-}
-
-@keyframes float {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
-
-/* Responsive Design */
-@media (max-width: 600px) {
-    body {
-        font-size: 0.9em;
-    }
-
-    .skills-container {
-        flex-direction: column;
-    }
-
-    #secret-message {
-        font-size: 1.2em;
-    }
-
-    header {
-        font-size: 1.2em;
     }
 }
