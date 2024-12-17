@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Retro Portfolio</title>
-    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
     <header>
@@ -20,7 +20,7 @@
             Born in the era of floppy disks, dial-up screeches, and Windows 95, I’m here to mix retro vibes 
             with modern tech magic. Think of this page as a love letter to AOL chatrooms, Lisa Frank folders, 
             and your favorite Saturday morning cartoons. Grab a Surge soda, crank up the dial on your boombox, 
-            and let’s build something totally rad together
+            and let’s build something totally rad together.
         </p>
     </section>
 
@@ -29,15 +29,15 @@
         <h2>Skills</h2>
         <div class="skills-container">
             <div class="skill">
-                <img src="/static/gifs/gamestik_gif.gif" alt="Skill 1">
+                <img src="{{ url_for('static', filename='gifs/gamestik_gif.gif') }}" alt="Skill 1">
                 <p>Master of Retro Coding</p>
             </div>
             <div class="skill">
-                <img src="/static/gifs/gameboy.gif" alt="Skill 2">
+                <img src="{{ url_for('static', filename='gifs/gameboy.gif') }}" alt="Skill 2">
                 <p>Pixel Perfect Designer</p>
             </div>
             <div class="skill">
-                <img src="/static/gifs/Skull.gif" alt="Skill 3">
+                <img src="{{ url_for('static', filename='gifs/Skull.gif') }}" alt="Skill 3">
                 <p>Debugging like a Boss</p>
             </div>
         </div>
@@ -62,7 +62,7 @@
     <section id="contact">
         <h2>Contact Me</h2>
         <a href="mailto:example@email.com">
-            <img src="/static/gifs/mail.gif" alt="Email"> Email Me
+            <img src="{{ url_for('static', filename='gifs/mail.gif') }}" alt="Email"> Email Me
         </a>
     </section>
 
@@ -70,11 +70,11 @@
     <section id="easter-egg-section">
         <h2>What's This?</h2>
         <button id="easter-egg-button">
-            <img src="/static/gifs/flower13.gif" alt="Surprise">
+            <img src="{{ url_for('static', filename='gifs/flower13.gif') }}" alt="Surprise">
         </button>
         <p id="secret-message" class="hidden"></p>
     </section>
 
-    <script src="/static/js/script.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
-</html> 
+</html>
