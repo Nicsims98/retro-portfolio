@@ -1,13 +1,13 @@
 /* General Styling */
 body {
-    background: url('/static/gifs/background.gif') no-repeat center center fixed;
+    background: url('../gifs/background.gif') no-repeat center center fixed;
     background-size: cover;
     font-family: "Comic Sans MS", cursive;
     color: lime;
     text-align: center;
     margin: 0;
     padding: 0;
-    cursor: url('/static/gifs/cursor.gif'), auto;
+    cursor: url('../gifs/cursor.gif'), auto;
 }
 
 /* Header */
@@ -76,6 +76,7 @@ button:hover {
     color: yellow;
     font-size: 1.5em;
 }
+
 .hidden {
     display: none;
 }
@@ -96,3 +97,4 @@ button:hover {
         opacity: 0;
     }
 }
+
