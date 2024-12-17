@@ -3,6 +3,17 @@ from flask_cors import CORS  # Import CORS for handling cross-origin requests
 
 app = Flask(__name__)
 
+from flask import Flask, render_template
+
+app = Flask(__name__, static_url_path='/static')
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
 # Define allowed CORS configuration
 frontend_origins = ["*"]  # Allow all origins; replace with a list of specific URLs if needed
 cors_config = {
