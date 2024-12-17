@@ -1,79 +1,32 @@
 from flask import Flask, render_template, request, redirect
-from flask_cors import CORS  # Import CORS for handling cross-origin requests
-
-app = Flask(__name__)
-
-from flask import Flask, render_template
+from flask_cors import CORS
 
 app = Flask(__name__, static_url_path='/static')
 
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-if __name__ == '__main__':
-    app.run(debug=True)
-
-# Define allowed CORS configuration
-frontend_origins = ["*"]  # Allow all origins; replace with a list of specific URLs if needed
-cors_config = {
-    r"*": {  # Match all routes
-        "origins": frontend_origins,  # Allowed origins
-        "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],  # Allowed HTTP methods
-        "allow_headers": [  # Allowed headers in requests
-            "Authorization",
-            "Content-Type",
-            "X-Requested-With",
-            "X-CSRF-Token"
-        ],
-        "supports_credentials": True  # Allow cookies and authentication
+# Enable CORS globally
+CORS(app, resources={
+    r"/*": {  # Apply to all routes
+        "origins": "*",  # Allow all origins (you can replace "*" with specific URLs)
+        "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+        "allow_headers": ["Authorization", "Content-Type", "X-Requested-With"]
     }
-}
+})
 
-# Apply CORS to the app with the defined configuration
-CORS(app, resources=cors_config)
-
-# File to store guestbook entries
-GUESTBOOK_FILE = 'guestbook.txt'
-
-# Function to read guestbook entries
-def read_guestbook():
-    entries = []
-    try:
-        with open(GUESTBOOK_FILE, 'r') as file:
-            for line in file:
-                try:
-                    name, message = line.strip().split("|")
-                    entries.append({'name': name, 'message': message})
-                except ValueError:
-                    print(f"Skipping invalid line: {line.strip()}")
-    except FileNotFoundError:
-        pass
-    return entries
-
-# Function to write new entries
-def write_guestbook(name, message):
-    with open(GUESTBOOK_FILE, 'a') as file:
-        file.write(f"{name}|{message}\n")
-
-# Route for homepage
+# Route for the homepage
 @app.route('/')
 def index():
-    guestbook_entries = read_guestbook()
+    guestbook_entries = []  # Disable guestbook entries (since Vercel has a read-only file system)
     return render_template('index.html', guestbook_entries=guestbook_entries)
 
-# Route for adding guestbook entries
+# Route for the guestbook form submission
 @app.route('/guestbook', methods=['POST'])
 def add_guestbook_entry():
+    # This will not save to a file to prevent 500 errors
     name = request.form.get('guestbook-name')
     message = request.form.get('guestbook-message')
+    print(f"Received entry: {name} - {message}")
+    return redirect('/')
 
-    if name and message:
-        write_guestbook(name, message)
-        return redirect('/')
-    else:
-        return 'Both name and message are required.', 400
-
-# Start the server
+# Main app runner
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
